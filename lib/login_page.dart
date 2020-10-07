@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'first_screen.dart';
 import 'sign_in.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -9,6 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
               _signInButton(),
             ],
           ),
-        ),
+        )
       ),
     );
   }

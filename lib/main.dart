@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-import 'login_page.dart';
-import 'first_screen.dart';
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
+import 'landing.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,26 +25,14 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: LoginPage(),
+            home: LandingPage(),
+            builder: (BuildContext context, Widget child) {
+              /// make sure that loading can be displayed in front of all other widgets
+              return FlutterEasyLoading(child: child);
+            },
           );
         } else {
           return Container();
-
-          return Scaffold(
-            body: Container(
-              color: Colors.white,
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    FlutterLogo(size: 150),
-                    CircularProgressIndicator()
-                  ],
-                ),
-              ),
-            ),
-          );
         }
       },
     );
