@@ -31,6 +31,18 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.blue,
                     fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: Text(
+                    'To use GraSPP Student Facilities, you must check in when you enter and check out when you leave.\n(A Google account is required)\n\nThere is a maximum capacity for each room, you may not enter once it is at maximum capacity.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black45,
+                    )
+                ),
+              ),
               SizedBox(height: 50),
               _signInButton(),
             ],
@@ -57,13 +69,13 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage("assets/google_logo.png"), height: 35.0),
+            Image(image: AssetImage("assets/google_logo.png"), height: 20.0),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
-                'Sign in with Google Now',
+                'Sign in with Google',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   color: Colors.grey,
                 ),
               ),

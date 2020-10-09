@@ -85,7 +85,7 @@ class _CheckedInPageState extends State<CheckedInPage> {
               var snapshotData;
               var snapshotID;
 
-              if (!snapshot.hasError) {
+              if (snapshot.hasError) {
                 return Center(
                   child: Chip(
                     backgroundColor: Colors.red,
