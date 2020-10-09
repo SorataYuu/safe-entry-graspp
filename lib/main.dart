@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:provider/provider.dart';
 
 import 'landing.dart';
+import 'auth.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(
+    ChangeNotifierProvider<Auth>(
+      create: (_) => Auth(),
+      child: MaterialApp(home: MyApp()),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   // Create the initialization Future outside of `build`:

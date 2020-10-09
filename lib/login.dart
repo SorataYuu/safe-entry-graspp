@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'room_selection.dart';
-import 'google_sign_in.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:provider/provider.dart';
+
+import 'room_selection.dart';
+import 'auth.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -21,7 +23,14 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlutterLogo(size: 150),
+              Image.asset('GSC_Logo.png', width: 150),
+              Text(
+                "Safe Entry for GraSPP",
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold),
+              ),
               SizedBox(height: 50),
               _signInButton(),
             ],
@@ -34,18 +43,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget _signInButton() {
     return OutlineButton(
       splashColor: Colors.grey,
-      onPressed: () {
-        signInWithGoogle().then((result) {
-          if (result != null) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return FirstScreen();
-                },
-              ),
-            );
-          }
-        });
+      onPressed: () async {
+        final auth = Provider.of<Auth>(context, listen: false);
+        await auth.signIn();
+        await Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => RoomSelection()));
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,
