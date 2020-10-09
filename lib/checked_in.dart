@@ -30,7 +30,7 @@ class _CheckedInPageState extends State<CheckedInPage> {
         title: Row(
           children: [
             CircleAvatar(
-              backgroundImage: AssetImage('GSC_Logo.png'),
+              backgroundImage: AssetImage('assets/GSC_Logo.png'),
             ),
             const SizedBox(width: 8),
             Text(
@@ -43,18 +43,6 @@ class _CheckedInPageState extends State<CheckedInPage> {
           ]
         ),
         actions: <Widget>[
-          Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: Center(
-                  child: Text(
-                    currentUser.displayName,
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.normal),
-                  )
-              )
-          ),
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: CircleAvatar(

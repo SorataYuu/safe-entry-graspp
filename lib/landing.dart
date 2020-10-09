@@ -54,7 +54,7 @@ class _LandingPageState extends State<LandingPage> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('GSC_Logo.png', width: 150),
+                Image.asset('assets/GSC_Logo.png', width: 150),
                 Text(
                   "Safe Entry for GraSPP",
                   style: TextStyle(
