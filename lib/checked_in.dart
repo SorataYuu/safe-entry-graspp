@@ -85,8 +85,19 @@ class _CheckedInPageState extends State<CheckedInPage> {
               var snapshotData;
               var snapshotID;
 
-              if (snapshot.hasError) {
-                return Text('Something went wrong');
+              if (!snapshot.hasError) {
+                return Center(
+                  child: Chip(
+                    backgroundColor: Colors.red,
+                    label: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.refresh_rounded, size: 20),
+                        Text("Please refresh", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))
+                      ]
+                    ),
+                  )
+                );
               }
 
               if (snapshot.connectionState == ConnectionState.waiting) {

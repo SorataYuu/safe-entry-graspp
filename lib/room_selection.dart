@@ -105,7 +105,20 @@ class _RoomSelectionState extends State<RoomSelection> {
             stream: getCheckInForUser(currentUser.uid),
             builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
-                return Text('Something went wrong');
+                return Center(
+                    child: Chip(
+                      backgroundColor: Colors.red,
+                      label: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.refresh_rounded, size: 20, color: Colors.white),
+                            const SizedBox(width: 8),
+                            Text("Please refresh", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))
+                          ]
+                      ),
+                    )
+                );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
               } else {
