@@ -139,10 +139,25 @@ class _CheckedInPageState extends State<CheckedInPage> {
                                 fontWeight: FontWeight.normal),
                           ),
                           const SizedBox(height: 8),
-                          Chip(
-                            backgroundColor: Colors.blue,
-                            label: Text('Capacity: '+ snapshot.data.size.toString() + ' / ' + roomList[roomID].capacity.toString(), style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                          ),
+                          StreamBuilder<QuerySnapshot>(
+                            stream: getCheckInForRoom(roomList[roomID].id),
+                            builder: (BuildContext context,
+                              AsyncSnapshot<QuerySnapshot> snapshotNew) {
+                            if (snapshotNew.hasError) {
+                              return Container();
+                            }
+
+                            if (snapshotNew.connectionState ==
+                            ConnectionState.waiting) {
+                              return Container();
+                            }
+
+                            return Chip(
+                              backgroundColor: Colors.blue,
+                              label: Text('Capacity: '+ snapshotNew.data.size.toString() + ' / ' + roomList[roomID].capacity.toString(), style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            );
+                          },
+                        ),
                           const SizedBox(height: 8),
                           RaisedButton(
                             color: Colors.blueAccent,

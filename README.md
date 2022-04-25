@@ -1,16 +1,9 @@
-# safeentry
+# Safe Entry for GraSPP
 
-A new Flutter project.
+This is a Flutter-based Web App developed as a Check In system for the Graduate School of Public Policy, University of Tokyo Student Lounge. It was developed over a week-long period. The backend uses Firebase.
 
-## Getting Started
+While the name is inspired by the same system in Singapore, this project has absolutely no relations to the one in Singapore. 
 
-This project is a starting point for a Flutter application.
+The project allowed students to scan a QR code at the entrance to the lounge, login with Google and then choose which room they were using in order to "check in". 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Do note that as the project was developed on short-notice, the code was not properly cleaned or commented. 
